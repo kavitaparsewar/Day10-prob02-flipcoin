@@ -1,9 +1,23 @@
 #!/bin/bash -x
-result=$((RANDOM%2))
-if [[ ${result} -eq 0 ]]
+
+head=0
+tail=0
+
+while [[ $head -le 11 && $tail -le 11 ]]
+do
+   res=$(($RANDOM%2))
+   if [ $res -eq 0 ]
+   then
+   head=$(($head+1))
+   else
+   tail=$(($tail+1))
+   fi
+   done
+
+if [ $head -eq 11 ];
 then
-   echo HEAD
+echo head$head
 else
-   echo TAIL
+echo tail$tail
 fi
 
